@@ -4,7 +4,7 @@ class AuthenticationToken < ApplicationRecord
   validates :token, :expires_at, presence: true
 
   before_validation :set_expires_at, on: :create
-  before_validation set_token, on: :create 
+  before_validation :set_token, on: :create 
 
   def set_expires_at
     self.expires_at = Time.zone.now + 1.hour 
